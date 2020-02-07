@@ -1,0 +1,35 @@
+lecture week7 (20/01/63)
+#include <stdio.h>
+//void addTen(int numbers[], int n) .ในคอมเม้นกับตัวล่าง number เหมือนกัน
+void addTen(int *numbers, int n){
+  for(int i =0; i< n; i++){
+    printf("number + %d addr = %p, %d\n",i , numbers + i,*(numbers+i));
+    *(numbers + i )+= 10; // คือการที่เราเอาแอดเดรสที่เราส่งเข้ามา ให้มันหา และเอาไปบวก 10
+   //มันก็จะเปลี่ยน ทุกตัว ใน array 
+  }
+}
+int addTwenty(int *n ){
+    *n+=20;
+    return 1 ;
+}
+
+int main(){
+  int numbers[] = {5, 6, 7, 8, 9, 0};
+  int n = 6;
+  //int *ptr = &n
+  addTen(&numbers[0], n); //ถ้าจะ pass by reference ต้องส่งด้วย address
+
+
+
+  for(int i = 0 ; i<6;i++){
+    printf("number[%d] = %d\n",i , numbers[i]); // pass by reference 
+  }
+  addTwenty(&n); // addTen(ptr); สามารถตั้งให้ ptr ชี้ไปที่ n ก็ได้ คือเราก็ไปประกาศ pointer เป็นตัวแปร int แล้ว int ตัวนั้น ชี้ไปที่ n 
+  printf("n = %d\n",n);
+
+// pointer ริงๆแล้ว เก็บได้ทุกค่า แต่ว่า จริงๆก็สมควร เก็บแค่  address ก็พอ ไม่งั้น มันอาจจะให้ค่าที่ผิดได้  มันเหมาะสำหรับการที่เรา จะ pass by reference
+//**ascii code A=65-Z=90 ,a=97-z=122,0=48**//
+//** reference คือการเอามาทั้งก้อน ค่าเปลี่ยน ไม่ได้เหมือนกับ pass by value **//
+//** pointer เวลาประกาศคือ ใส่ ตัว * เข้าด้านหน้าชื่อที่เราจะประกาศ และใน memmory จะเก็บค่า ตาม type ที่เราประกาศ ถ้าเป็น int คือ 4 byte , char 1 byte
+pointer จะเก็บค่าใน address นั้นๆ มันเหมือนลูกศร ชี้เข้าหา ข้อมูลใน address นั้นๆ ถ้าเราปริ้น %d จะได้ค่า เป็นข้อมูลใน address นั้น ถ้า ปริ้น %p จะได้ เลข address นั้นๆออกมา เป็นเลขฐาน 16 
+ค่า address แล้วแต่เครื่องจะอ่าน แต่เลขด้านหลังที่เปลี่ยนแปลงไป คือการบวกค่า byte ตาม type ที่เรากำหนดให้กับ pointer 
