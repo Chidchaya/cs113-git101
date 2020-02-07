@@ -1,0 +1,48 @@
+// #include <stdio.h>
+// int main(){
+//     int x =100;
+//     int a =0144;
+//     int b =0x64;
+//     printf("x = %d\n", x);
+//     printf("reference of x = %lu\n", &x);
+//     printf("reference of x = %p\n", &x);
+//     --------------------------------------------
+//     int number[] = {7,8,9,10,11};
+//     int number[100]= {7,8,9,10,11};
+//     int number [5] ; // คือด้านบนจองอาเรย์ไว้100 ส่วนบรรทัดนี้เราจองไว้ 5 ตัว ใส่อะไรก้ได้ แต่หลังจากนั้น มันก็จะไปหาข้อมูลมา memory เองว่า ด้านในเก็บอะไร
+//     int number[3000] = 200 ;
+//     printf("index 3 = %d\n", number[3000]);
+//     printf("reference index 3 = %p\n", &number[3]);
+//     printf("reference index 0 = %p\n", &number[0]);
+//     printf("reference index 0 = %p\n", number+3);//ถ้าเป็น pointer+3 ไม่ได้แปลว่า pointer บวกกับ3 แต่มันคือ เอาค่าไทป์ของตัวแปรที่เราประกาศมาบวกกัน หรือตัวที่เราเรียกว่า pointer 
+//     ดูว่าค่าไทป์นั้น มัเป็นอะไร ถ้าเป็น int ก็ 4 ไบท์ เท่ากับว่า number + 3  คือการเอา 4 ไบท์ ไปคูณกับ 3 
+//     int *ptr = &x // pointer เก็บ address
+//     int arrPtr; // การจะสั่งให้ pointer ไปชี้ที่ค่าไหนต้องประกาศค่า และใส่ตัว สตาร์ * 
+//     arrPtr = number; // นี่คือการ assign ค่า ให้กับ pointer มันจะชี้ไปที่ค่าของ index แรก
+//     arrPtr = arrPtr+1;
+//     *arrPtr = *arrPtr + 1 ;// สตาร์ คือค่า dereferencing เป็นการบอกว่าให้เรียกค่า จาก address index ตรงนั้นออมา
+//     printf("arrPtr = %p, *arrPtr = %d\n", arrPtr, *arrPtr);
+//     printf("number[1] = %p ,number[1] = %d\n", &number[1],number[1]);
+//     ----------------------------------------------------------------------------
+//     x = 50;
+//     ptr = x;
+//     *ptr = 50; // ถ้าเป็นสตาร์ 2 ตัว ** คือเก็บ address ของ pointer  
+//     int number [] = {7,8,9,10,11}; //ถ้าประกาศแบนี้ตือต้องรู้เลยว่า ต้อง loop กี่รอบ
+//     char input[50]; // ถ้าประกาศเป็น char มันจองพื้นที่เท่าไหร่ ก็ไม่จำเป็นต้องวนลูปตามจำนวนอาเรย์ที่จองเสมอไป
+//     for (int *ptr = number; ptr <= &number[4];ptr++){
+//         printf("[%p] = %d\n", ptr , *ptr);
+//     }
+//     char input[50];
+//     int count = 0 ;
+//     char c;
+//     while ((c = getchar()) != '\n'){
+//         input[count]= c;
+//         ++count;
+//     }
+//     input[count] = '\0'; //เป็นการบอกว่า จะปิดสตริงตอนไหน เพราะ \0 คือตัวหยุด ในอาเรย์
+//     printf("input = %s\n", input);
+//     for (char *cPtr = &input[0]; *cPtr != '\0'; cPtr++){
+//         printf("%c\n", *cPtr);
+//     }
+//     ปล.เพิ่ม ถ้ามีอาเรย์ แล้วจะ scanf ไม่ต้อง มี &
+//     }
